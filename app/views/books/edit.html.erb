@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5 mx-auto mt-3">
+      <h1>Editing Book</h1>
+      <% if @book.errors.any? %>
+        <h2 class="text-danger">
+          <%= pluralize(@book.errors.count, "error") %>
+          prohibited this obj from being saved:
+        </h2>
+        <% @book.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <li class="text-danger"><%= message %></li>
+          </div>
+        <% end %>
+      <% end %>
+      <%= form_with model:@book, local:true do |f| %>
+        <div class="field mb-2">
+          <label for="book_title">Title</label><br />
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="field mb-3">
+          <label for="book_body">Opinion</label><br />
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+        <div class="actions mb-3">
+          <%= f.submit 'Update Book',class: "btn btn-success" %>
+        </div>
+      <% end %>
+      <%= link_to "show", book_path(@book.id) %> |
+      <%= link_to "Back", books_path %>
+    </div>
+  </div>
+</div>
