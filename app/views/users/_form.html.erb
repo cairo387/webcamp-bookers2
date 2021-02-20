@@ -14,10 +14,6 @@
       </tr>
     </table>
     <div class="row">
-      <% if @user.id == current_user.id %>
-        <%= link_to "", edit_user_path(user), class: "fas fa-user-cog btn btn-outline-secondary btn-block" %>
-      <% else %>
-        <%= link_to "", user_path(current_user), class: "fas fa-user-cog btn btn-outline-secondary btn-block" %>
-      <% end %>
+      <%= link_to '', edit_user_path(user), class: "fas fa-user-cog btn btn-outline-secondary btn-block" %>
     </div>
   </div>

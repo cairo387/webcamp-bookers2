@@ -1,5 +1,5 @@
 <% user = current_user if user.nil? %>
-<h2 class="mt-3">User info</h2>
+<h2 class>User info</h2>
   <div class="profile-container">
     <table class="table">
       <tr>
@@ -15,6 +15,6 @@
       </tr>
     </table>
     <div class="row">
-      <%= link_to "", edit_user_path(user), class: "fas fa-user-cog btn btn-outline-secondary btn-block" %>
+      <%= link_to "", edit_user_path(@book.user_id), class: "fas fa-user-cog btn btn-outline-secondary btn-block" %>
     </div>
   </div>
