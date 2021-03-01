@@ -29,16 +29,17 @@
                     <%= link_to book_favorites_path(book), method: :delete do %>
                      <p class="text-danger">
                       <i class="fa fa-heart" aria-hidden="true"></i>
-                      <%=book.favorites.count %>
+                      <%= book.favorites.count %>
                     </p>
                     <% end %>
                   <% else %>
                     <%= link_to book_favorites_path(book), method: :post do %>
                       <i class="fa fa-heart" aria-hidden="true"></i>
-                      <%=book.favorites.count %>
+                      <%= book.favorites.count %>
                     <% end %>
                 <% end %>
               </td>
+              <td><p>コメント数:<%= book.book_comments.count %></p></td>
             </tr>
           <% end %>
         </tbody>
