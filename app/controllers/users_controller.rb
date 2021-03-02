@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
-  
+
   def index
     @user = current_user
     @users= User.all.order(id: :asc)
@@ -28,8 +28,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @user = User.find(params[:user_id])
+    @users = @user.following_user
+    render :follow_list
+  end
+
+  def follower
+    @user = User.find(params[:user_id])
+    @users = @user.follower_user
+    render :follower_list
+  end
+
   private
-  
+
   def ensure_correct_user
     unless params[:id].to_i == current_user.id
       redirect_to user_path(current_user)
