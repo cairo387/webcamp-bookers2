@@ -1,0 +1,18 @@
+<div class="row mt-3">
+  <div class="mx-auto">
+    <% if user_signed_in? %>
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :search %>
+        <%= f.select :select, [["User", "user"], ["Book", "book"]] %>
+        <%= f.select :type, [
+            ["完全一致", "exact"],
+            ["前方一致", "prefix"],
+            ["後方一致", "backward"],
+            ["部分一致", "partial"]
+          ]
+        %>
+        <%= f.submit '検索' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
