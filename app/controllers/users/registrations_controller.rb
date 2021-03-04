@@ -9,10 +9,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # POST /resource
-  # def create
-  #   super
-  # end
+   POST /resource
+   def create
+     super
+     NotificationMailer.send_when_admin_signup(@user).deliver
+   end
 
   # GET /resource/edit
   # def edit
